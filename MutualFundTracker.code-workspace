@@ -1,0 +1,101 @@
+{
+    "folders": [
+        {
+            "path": "./Server",
+            "name": "Server"
+        },
+        {
+            "path": "./Client",
+            "name": "Client"
+        }
+    ],
+    "settings": {
+        "workbench.tree.indent": 16,
+        "files.exclude": {
+            "**/node_modules": true,
+            "**/python_modules": true,
+            "node_modules_fixes": true,
+            "package-lock.json": true,
+            "public": true,
+            "**/.history": true,
+            "public_asset": true,
+            "build": true,
+            "binding.gyp": true,
+            "cert": true,
+            "*.code-workspace": true
+        },
+        "files.associations": {
+            "codecvt": "cpp",
+            "xlocbuf": "cpp",
+            "xiosbase": "cpp",
+            "iostream": "cpp",
+            "xstring": "cpp",
+            "xlocale": "cpp",
+            "xlocinfo": "cpp",
+            "exception": "cpp",
+            "fstream": "cpp",
+            "functional": "cpp",
+            "istream": "cpp",
+            "iterator": "cpp",
+            "locale": "cpp",
+            "memory": "cpp",
+            "stdexcept": "cpp",
+            "string": "cpp",
+            "system_error": "cpp",
+            "typeinfo": "cpp",
+            "xlocmes": "cpp",
+            "xlocmon": "cpp",
+            "xlocnum": "cpp",
+            "xloctime": "cpp",
+            "algorithm": "cpp",
+            "atomic": "cpp",
+            "bit": "cpp",
+            "cctype": "cpp",
+            "clocale": "cpp",
+            "cmath": "cpp",
+            "compare": "cpp",
+            "concepts": "cpp",
+            "cstddef": "cpp",
+            "cstdint": "cpp",
+            "cstdio": "cpp",
+            "cstdlib": "cpp",
+            "cstring": "cpp",
+            "ctime": "cpp",
+            "cwchar": "cpp",
+            "initializer_list": "cpp",
+            "ios": "cpp",
+            "iosfwd": "cpp",
+            "limits": "cpp",
+            "list": "cpp",
+            "map": "cpp",
+            "mutex": "cpp",
+            "new": "cpp",
+            "ostream": "cpp",
+            "ratio": "cpp",
+            "stop_token": "cpp",
+            "streambuf": "cpp",
+            "thread": "cpp",
+            "tuple": "cpp",
+            "type_traits": "cpp",
+            "unordered_map": "cpp",
+            "utility": "cpp",
+            "vector": "cpp",
+            "xfacet": "cpp",
+            "xhash": "cpp",
+            "xmemory": "cpp",
+            "xstddef": "cpp",
+            "xtr1common": "cpp",
+            "xtree": "cpp",
+            "xutility": "cpp"
+        }
+    },
+    "extensions": {
+        "recommendations": [
+            "dbaeumer.vscode-eslint",
+            "formulahendry.auto-close-tag",
+            "streetsidesoftware.code-spell-checker",
+            "christian-kohler.path-intellisense",
+            "christian-kohler.npm-intellisense"
+        ]
+    }
+}

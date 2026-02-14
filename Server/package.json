@@ -1,0 +1,25 @@
+{
+  "name": "mf-tracker-server",
+  "version": "1.0.0",
+  "workspaces": [
+    "libs/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "db:generate": "bun run --cwd libs/db generate",
+    "db:migrate": "bun run --cwd libs/db migrate",
+    "sync:dev": "bun run --cwd apps/sync dev",
+    "sync:start": "bun run --cwd apps/sync start",
+    "sync:backfill": "bun run --cwd apps/sync start -- --backfill",
+    "api:dev": "bun run --cwd apps/api dev",
+    "api:start": "bun run --cwd apps/api start"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.30.0",
+    "postgres": "^3.4.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "drizzle-kit": "^0.20.0"
+  }
+}

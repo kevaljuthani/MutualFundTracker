@@ -1,0 +1,27 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1770312048272,
+      "tag": "0000_tough_blizzard",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1770312905501,
+      "tag": "0001_careful_vivisector",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1770315789139,
+      "tag": "0002_loose_leader",
+      "breakpoints": true
+    }
+  ]
+}

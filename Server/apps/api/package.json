@@ -1,0 +1,21 @@
+{
+  "name": "mf-tracker-api",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "latest",
+    "@elysiajs/swagger": "latest",
+    "@lucia-auth/adapter-drizzle": "^1.0.0",
+    "@mf-tracker/db": "workspace:*",
+    "elysia": "latest",
+    "lucia": "^3.0.0",
+    "oslo": "^1.0.0",
+    "xirr": "^1.1.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  }
+}

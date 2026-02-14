@@ -1,0 +1,167 @@
+{
+  "id": "743350ee-142a-46dd-ab5d-b892bdc3b2ab",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "latest_nav": {
+      "name": "latest_nav",
+      "schema": "",
+      "columns": {
+        "scheme_code": {
+          "name": "scheme_code",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nav": {
+          "name": "nav",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nav_date": {
+          "name": "nav_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "latest_nav_scheme_code_mutual_funds_scheme_code_fk": {
+          "name": "latest_nav_scheme_code_mutual_funds_scheme_code_fk",
+          "tableFrom": "latest_nav",
+          "tableTo": "mutual_funds",
+          "columnsFrom": [
+            "scheme_code"
+          ],
+          "columnsTo": [
+            "scheme_code"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "mutual_funds": {
+      "name": "mutual_funds",
+      "schema": "",
+      "columns": {
+        "scheme_code": {
+          "name": "scheme_code",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "scheme_name": {
+          "name": "scheme_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fund_house": {
+          "name": "fund_house",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "category": {
+          "name": "category",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "inception_date": {
+          "name": "inception_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "raw_json": {
+          "name": "raw_json",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "nav_history": {
+      "name": "nav_history",
+      "schema": "",
+      "columns": {
+        "scheme_code": {
+          "name": "scheme_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nav_date": {
+          "name": "nav_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nav": {
+          "name": "nav",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "nav_history_scheme_code_mutual_funds_scheme_code_fk": {
+          "name": "nav_history_scheme_code_mutual_funds_scheme_code_fk",
+          "tableFrom": "nav_history",
+          "tableTo": "mutual_funds",
+          "columnsFrom": [
+            "scheme_code"
+          ],
+          "columnsTo": [
+            "scheme_code"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "nav_history_scheme_code_nav_date_pk": {
+          "name": "nav_history_scheme_code_nav_date_pk",
+          "columns": [
+            "scheme_code",
+            "nav_date"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
