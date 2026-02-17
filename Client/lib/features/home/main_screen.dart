@@ -1,8 +1,6 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/glass_container.dart';
-import '../../core/theme.dart';
 
 class MainScreen extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
@@ -15,20 +13,19 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final glassTheme = theme.extension<GlassTheme>();
-
     return Scaffold(
       extendBody: true, // Important for glass effect over body content
       body: navigationShell,
       bottomNavigationBar: Container(
-        padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24, top: 12),
+        padding:
+            const EdgeInsets.only(left: 16, right: 16, bottom: 24, top: 12),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
               Colors.transparent,
-              theme.scaffoldBackgroundColor.withOpacity(0.5),
+              theme.scaffoldBackgroundColor.withOpacity(0.65),
             ],
             stops: const [0.0, 0.4],
           ),
@@ -50,10 +47,13 @@ class MainScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildNavItem(BuildContext context, int index, IconData icon, String label) {
+  Widget _buildNavItem(
+      BuildContext context, int index, IconData icon, String label) {
     final isSelected = navigationShell.currentIndex == index;
     final theme = Theme.of(context);
-    final color = isSelected ? theme.colorScheme.primary : theme.colorScheme.onSurface.withOpacity(0.5);
+    final color = isSelected
+        ? theme.colorScheme.primary
+        : theme.colorScheme.onSurface.withOpacity(0.5);
 
     return InkWell(
       onTap: () => navigationShell.goBranch(index),
