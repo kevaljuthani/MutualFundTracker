@@ -6,9 +6,9 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: const ColorScheme.light(
-        primary: Color(0xFF007AFF), // iOS Blue
-        secondary: Color(0xFF34C759), // iOS Green
-        surface: Color(0xFFF2F2F7), // iOS System Background
+        primary: Color(0xFF2B6CB0),
+        secondary: Color(0xFF2F855A),
+        surface: Color(0xFFF4FAF8),
 
         error: Color(0xFFFF3B30), // iOS Red
         onPrimary: Colors.white,
@@ -17,7 +17,7 @@ class AppTheme {
 
         onError: Colors.white,
       ),
-      scaffoldBackgroundColor: const Color(0xFFF2F2F7),
+      scaffoldBackgroundColor: const Color(0xFFEFF7F3),
       fontFamily: GoogleFonts.inter().fontFamily,
       textTheme: GoogleFonts.interTextTheme().copyWith(
         displayLarge: const TextStyle(
@@ -45,7 +45,7 @@ class AppTheme {
       ),
       cardTheme: CardThemeData(
         elevation: 0,
-        color: Colors.white.withValues(alpha: 0.7), // Glass effect base
+        color: Colors.white.withValues(alpha: 0.82),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
           side:
@@ -84,9 +84,9 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: const ColorScheme.dark(
-        primary: Color(0xFF0A84FF), // iOS Dark Mode Blue
-        secondary: Color(0xFF30D158), // iOS Dark Mode Green
-        surface: Color(0xFF1C1C1E), // iOS System Gray 6 Dark
+        primary: Color(0xFF63B3ED),
+        secondary: Color(0xFF68D391),
+        surface: Color(0xFF151A20),
 
         error: Color(0xFFFF453A), // iOS Dark Mode Red
         onPrimary: Colors.white,
@@ -95,7 +95,7 @@ class AppTheme {
 
         onError: Colors.black,
       ),
-      scaffoldBackgroundColor: const Color(0xFF000000),
+      scaffoldBackgroundColor: const Color(0xFF0E1116),
       fontFamily: GoogleFonts.inter().fontFamily,
       textTheme:
           GoogleFonts.interTextTheme(ThemeData.dark().textTheme).copyWith(
