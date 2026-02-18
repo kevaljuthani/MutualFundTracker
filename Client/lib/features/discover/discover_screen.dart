@@ -116,7 +116,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
 
   Widget _buildHorizontalFundList(BuildContext context, List<dynamic> funds) {
     if (funds.isEmpty) {
-        return const Center(child: Text("No featured funds available"));
+      return const Center(child: Text("No featured funds available"));
     }
     return SizedBox(
       height: 180,
@@ -135,15 +135,19 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
-                      color: Colors.amber.withOpacity(0.2),
+                      color: Colors.amber.withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(color: Colors.amber),
                     ),
                     child: const Text(
                       '★★★★★',
-                      style: TextStyle(color: Colors.amber, fontSize: 10, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Colors.amber,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                   const Spacer(),
@@ -151,13 +155,19 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     fund['schemeName'] ?? 'Unknown Fund',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 4),
                   // Placeholder return, real app needs calculation
                   Text(
                     'Growth',
-                    style: TextStyle(color: Theme.of(context).colorScheme.secondary, fontWeight: FontWeight.bold, fontSize: 12),
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12),
                   ),
                 ],
               ),
@@ -170,7 +180,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
 
   Widget _buildVerticalFundList(BuildContext context, List<dynamic> funds) {
     if (funds.isEmpty) {
-        return const Center(child: Text("No funds available"));
+      return const Center(child: Text("No funds available"));
     }
     return ListView.separated(
       physics: const NeverScrollableScrollPhysics(),
@@ -189,10 +199,14 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                    color: Theme.of(context)
+                        .colorScheme
+                        .primary
+                        .withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Icon(Icons.show_chart, color: Theme.of(context).colorScheme.primary),
+                  child: Icon(Icons.show_chart,
+                      color: Theme.of(context).colorScheme.primary),
                 ),
                 const SizedBox(width: 16),
                 Expanded(
@@ -201,7 +215,10 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     children: [
                       Text(
                         fund['schemeName'] ?? 'Unknown Fund',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium
+                            ?.copyWith(fontWeight: FontWeight.w600),
                       ),
                       Text(
                         fund['category'] ?? 'Mutual Fund',
@@ -211,7 +228,8 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                   ),
                 ),
                 // Placeholder NAV
-                const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
+                const Icon(Icons.arrow_forward_ios,
+                    size: 16, color: Colors.grey),
               ],
             ),
           ),

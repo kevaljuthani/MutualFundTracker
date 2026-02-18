@@ -34,28 +34,23 @@ class _LoginScreenState extends State<LoginScreen> {
     if (!_formKey.currentState!.validate()) {
       return;
     }
-    
-    print('Form validated, attempting login...');
+
     final auth = context.read<AuthProvider>();
-    
+
     final error = await auth.login(
       _emailController.text.trim(),
       _passwordController.text,
     );
-    
-    print('Login returned, error: $error, mounted: $mounted');
-    
+
     if (!mounted) {
-      print('Widget not mounted, skipping UI updates');
       return;
     }
-    
+
     if (error != null) {
-      print('Showing error dialog: $error');
       // Use Future.delayed to ensure the widget tree is stable
       await Future.delayed(Duration.zero);
       if (!mounted) return;
-      
+
       await showDialog(
         context: context,
         barrierDismissible: false,
@@ -72,9 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ],
         ),
       );
-      print('Dialog dismissed');
     } else {
-      print('Login successful, clearing fields and navigating');
       // Only clear on success
       _emailController.clear();
       _passwordController.clear();
@@ -103,7 +96,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Icon(Icons.show_chart, size: 64, color: Theme.of(context).colorScheme.primary),
+                  Icon(Icons.show_chart,
+                      size: 64, color: Theme.of(context).colorScheme.primary),
                   const SizedBox(height: 16),
                   Text(
                     'Welcome Back',
@@ -113,7 +107,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 32),
                   TextFormField(
                     controller: _emailController,
-                    decoration: const InputDecoration(labelText: 'Email'), // Removed explicit border
+                    decoration: const InputDecoration(
+                        labelText: 'Email'), // Removed explicit border
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
                     validator: _validateEmail,
@@ -121,7 +116,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 16),
                   TextFormField(
                     controller: _passwordController,
-                    decoration: const InputDecoration(labelText: 'Password'), // Removed explicit border
+                    decoration: const InputDecoration(
+                        labelText: 'Password'), // Removed explicit border
                     obscureText: true,
                     textInputAction: TextInputAction.done,
                     validator: (v) => v!.isEmpty ? 'Required' : null,
@@ -133,7 +129,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       return FilledButton(
                         onPressed: auth.isLoading ? null : _handleLogin,
                         child: auth.isLoading
-                            ? const SizedBox(height: 20, width: 20, child: CircularProgressIndicator(strokeWidth: 2))
+                            ? const SizedBox(
+                                height: 20,
+                                width: 20,
+                                child:
+                                    CircularProgressIndicator(strokeWidth: 2))
                             : const Text('Login'),
                       );
                     },

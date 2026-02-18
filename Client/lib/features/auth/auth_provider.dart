@@ -6,10 +6,10 @@ import '../../core/api_client.dart';
 class AuthProvider extends ChangeNotifier {
   final ApiClient _apiClient = ApiClient();
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
-  
+
   bool _isAuthenticated = false;
   bool get isAuthenticated => _isAuthenticated;
-  
+
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
@@ -42,20 +42,17 @@ class AuthProvider extends ChangeNotifier {
       });
       final token = response.data['token'];
       final user = response.data['user'];
-      
+
       await _storage.write(key: 'auth_token', value: token);
       _isAuthenticated = true;
       _currentUser = user['name'];
-      print('Login successful');
+
       return null; // No error
     } on DioException catch (e) {
-      print('DioException caught: ${e.response?.statusCode}');
-      print('Response data: ${e.response?.data}');
       final errorMessage = e.response?.data['error'] ?? 'Login failed';
-      print('Error message: $errorMessage');
+
       return errorMessage;
     } catch (e) {
-      print('Unexpected error: $e');
       return 'An unexpected error occurred';
     } finally {
       _isLoading = false;
@@ -74,7 +71,7 @@ class AuthProvider extends ChangeNotifier {
       });
       final token = response.data['token'];
       final user = response.data['user'];
-      
+
       await _storage.write(key: 'auth_token', value: token);
       _isAuthenticated = true;
       _currentUser = user['name'];

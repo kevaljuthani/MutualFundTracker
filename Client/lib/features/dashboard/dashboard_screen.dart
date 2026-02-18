@@ -94,14 +94,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
             if (holdings.isEmpty)
               _buildEmptyState(context)
             else
-              ...topHoldings.map((holding) => _buildHoldingItem(context, holding)),
+              ...topHoldings
+                  .map((holding) => _buildHoldingItem(context, holding)),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildSummaryCard(BuildContext context, Map<String, dynamic>? summary) {
+  Widget _buildSummaryCard(
+      BuildContext context, Map<String, dynamic>? summary) {
     final curVal = summary?['currentValue'] ?? 0;
     final invested = summary?['totalInvested'] ?? 0;
     final xirr = summary?['xirr'] ?? 0;
@@ -117,13 +119,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Theme.of(context).colorScheme.primary.withOpacity(0.92),
-            Theme.of(context).colorScheme.secondary.withOpacity(0.88),
+            Theme.of(context).colorScheme.primary.withValues(alpha: 0.92),
+            Theme.of(context).colorScheme.secondary.withValues(alpha: 0.88),
           ],
         ),
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.25),
+            color:
+                Theme.of(context).colorScheme.primary.withValues(alpha: 0.25),
             blurRadius: 16,
             offset: const Offset(0, 10),
           ),
@@ -137,7 +140,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             style: Theme.of(context)
                 .textTheme
                 .labelLarge
-                ?.copyWith(color: Colors.white.withOpacity(0.8)),
+                ?.copyWith(color: Colors.white.withValues(alpha: 0.8)),
           ),
           const SizedBox(height: 8),
           Text(
@@ -192,7 +195,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(14),
-          color: color ?? Colors.white.withOpacity(0.2),
+          color: color ?? Colors.white.withValues(alpha: 0.2),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -202,7 +205,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               style: Theme.of(context)
                   .textTheme
                   .labelSmall
-                  ?.copyWith(color: Colors.white.withOpacity(0.85)),
+                  ?.copyWith(color: Colors.white.withValues(alpha: 0.85)),
             ),
             const SizedBox(height: 2),
             Text(
@@ -258,7 +261,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
           color: Theme.of(context).cardTheme.color,
           borderRadius: BorderRadius.circular(18),
           border: Border.all(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.08),
+            color:
+                Theme.of(context).colorScheme.primary.withValues(alpha: 0.08),
           ),
         ),
         child: Row(
@@ -269,8 +273,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Theme.of(context).colorScheme.primary.withOpacity(0.14),
-                    Theme.of(context).colorScheme.secondary.withOpacity(0.14),
+                    Theme.of(context)
+                        .colorScheme
+                        .primary
+                        .withValues(alpha: 0.14),
+                    Theme.of(context)
+                        .colorScheme
+                        .secondary
+                        .withValues(alpha: 0.14),
                   ],
                 ),
                 borderRadius: BorderRadius.circular(10),
@@ -399,7 +409,8 @@ class _ActionCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           color: Theme.of(context).cardTheme.color,
           border: Border.all(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.08),
+            color:
+                Theme.of(context).colorScheme.primary.withValues(alpha: 0.08),
           ),
         ),
         child: Column(

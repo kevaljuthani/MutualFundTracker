@@ -37,7 +37,8 @@ class AccountScreen extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 30,
-            backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+            backgroundColor:
+                Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
             child: Text(
               'JD',
               style: TextStyle(
@@ -53,7 +54,10 @@ class AccountScreen extends StatelessWidget {
             children: [
               Text(
                 'John Doe',
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
               Text(
                 'john.doe@example.com',
@@ -66,7 +70,8 @@ class AccountScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSettingsSection(BuildContext context, ThemeProvider themeProvider, AuthProvider authProvider) {
+  Widget _buildSettingsSection(BuildContext context,
+      ThemeProvider themeProvider, AuthProvider authProvider) {
     return GlassContainer(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Column(
@@ -102,7 +107,8 @@ class AccountScreen extends StatelessWidget {
           ),
           const Divider(height: 1, indent: 16, endIndent: 16),
           ListTile(
-            leading: Icon(Icons.logout_rounded, color: Theme.of(context).colorScheme.error),
+            leading: Icon(Icons.logout_rounded,
+                color: Theme.of(context).colorScheme.error),
             title: Text(
               'Logout',
               style: TextStyle(color: Theme.of(context).colorScheme.error),

@@ -25,7 +25,7 @@ class MainScreen extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: [
               Colors.transparent,
-              theme.scaffoldBackgroundColor.withOpacity(0.65),
+              theme.scaffoldBackgroundColor.withValues(alpha: 0.65),
             ],
             stops: const [0.0, 0.4],
           ),
@@ -53,7 +53,7 @@ class MainScreen extends StatelessWidget {
     final theme = Theme.of(context);
     final color = isSelected
         ? theme.colorScheme.primary
-        : theme.colorScheme.onSurface.withOpacity(0.5);
+        : theme.colorScheme.onSurface.withValues(alpha: 0.5);
 
     return InkWell(
       onTap: () => navigationShell.goBranch(index),
@@ -62,7 +62,7 @@ class MainScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: isSelected
             ? BoxDecoration(
-                color: theme.colorScheme.primary.withOpacity(0.15),
+                color: theme.colorScheme.primary.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(30),
               )
             : null,
